@@ -1,0 +1,37 @@
+[project]
+name = "hf-monitor-bot"
+version = "1.0.0"
+description = "Telegram bot for monitoring new AI models on Hugging Face"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [
+    {name = "Ivan Mordovets", email = "ipmordovetc@gmail.com"},
+]
+dependencies = [
+    "python-telegram-bot[job-queue]>=21.0,<22.0",
+    "aiohttp>=3.11,<4.0",
+    "jinja2>=3.1,<4.0",
+    "arxiv>=2.4,<3.0",
+    "trafilatura>=2.0",
+]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.build]
+package-dir = "src"
+
+[tool.pdm.scripts]
+start = "python -m hf_bot"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]

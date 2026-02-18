@@ -1,0 +1,25 @@
+{% if reply_context %}
+[Твоё предыдущее сообщение, на которое отвечает пользователь:]
+{{ reply_context }}
+
+{% endif %}
+{% if hf_context %}
+[Актуальные данные с Hugging Face:]
+{{ hf_context }}
+
+{% endif %}
+{% if url_context %}
+[Содержимое ссылки, которую прислал пользователь:]
+{{ url_context }}
+
+{% endif %}
+{% if search_context %}
+{{ search_context }}
+
+{% endif %}
+{% if reply_context %}
+[Ответ пользователя на твоё сообщение:]
+{% else %}
+[Вопрос пользователя:]
+{% endif %}
+{{ user_message }}

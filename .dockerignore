@@ -1,0 +1,46 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv
+venv
+env
+.eggs
+*.egg-info
+*.egg
+
+# PDM
+.pdm-python
+pdm.lock
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# Docker
+Dockerfile
+docker-compose*.yml
+.docker
+
+# Project files not needed in image
+.env
+.env.*
+!.env.example
+data/
+LICENSE
+.dockerignore
+*.md
+!README.md
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,22 @@
+services:
+  hf-bot:
+    build: .
+    container_name: hf-monitor-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    stop_grace_period: 5s
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+        reservations:
+          memory: 32M
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
