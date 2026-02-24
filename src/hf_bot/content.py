@@ -49,11 +49,20 @@ RANDOM_PHRASES: list[str] = [
     "VRAM is all you need.",
     "Надеюсь, у вас есть 8×A100.",
     "Fine-tuning когда?",
-    "Китайцы снова впереди.",
     "Open source побеждает!",
-    "Llama нервно курит в сторонке.",
-    "GPT-5 отменяется.",
 ]
+
+_PHRASE_CHINA = "Китайцы снова впереди."
+_PHRASE_LLAMA = "Llama нервно курит в сторонке."
+_PHRASE_GPT = "OpenAI нервно пересчитывает бенчмарки."
+
+ORG_PHRASES: dict[str, list[str]] = {}
+for _o in ("Qwen", "deepseek-ai", "tencent", "MiniMaxAI", "inclusionAI", "moonshotai", "zai-org"):
+    ORG_PHRASES[_o] = [_PHRASE_CHINA, _PHRASE_LLAMA, _PHRASE_GPT]
+for _o in ("mistralai", "google", "nvidia", "xai-org", "Anthropic", "yandex", "t-tech", "ai-sage"):
+    ORG_PHRASES[_o] = [_PHRASE_LLAMA, _PHRASE_GPT]
+ORG_PHRASES["meta-llama"] = [_PHRASE_GPT]
+ORG_PHRASES["openai"] = [_PHRASE_LLAMA]
 
 ORG_COMMENTS: dict[str, list[str]] = {
     "Qwen": ["Очередная? Серьёзно? 🙄", "Alibaba не спит!", "Qwen-тичество растёт.", "И снова Qwen впереди."],

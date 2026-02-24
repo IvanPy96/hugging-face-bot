@@ -20,6 +20,7 @@ from hf_bot.content import (
     DEFAULT_ORG_COMMENTS,
     HERO_FALLBACKS,
     ORG_COMMENTS,
+    ORG_PHRASES,
     RANDOM_MODEL_COMMENTS,
     RANDOM_PHRASES,
     THINKING_PHRASES,
@@ -228,7 +229,8 @@ def format_model_card(model: ModelInfo) -> str:
 def format_new_model_notification(org: str, model_id: str) -> str:
     """Format a notification message for a newly detected model."""
     url = f"https://huggingface.co/{model_id}"
-    phrase = random.choice(RANDOM_PHRASES)
+    pool = RANDOM_PHRASES + ORG_PHRASES.get(org, [])
+    phrase = random.choice(pool)
     is_gc = is_gigachat(model_id)
 
     if is_gc:
